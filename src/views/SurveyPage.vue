@@ -26,18 +26,22 @@
       <p v-if="showEasterEgg">Luís é o melhor programador do mundo!</p>
     </div>
     <div v-if="showingQuestions">
-      <h2 class="font-bold text-xl text-center mb-12">Question 1/10</h2>
-      <h1 class="font-bold text-4xl mb-8">Are you PRO in CS:GO?</h1>
+      <h2 class="font-bold text-xl text-center mb-12">
+        Question {{ currentQuestion }}/10
+      </h2>
+      <h1 class="font-bold text-4xl mb-8">
+        {{ myQuestions[currentQuestion - 1].body }}
+      </h1>
       <div class="flex space-x-8 justify-center">
         <button
           class="font-bold text-brand-light bg-brand-dark rounded-md w-1/3 py-1 text-lg hover:bg-brand-darkLight"
         >
-          Yes
+          {{ myQuestions[currentQuestion - 1].affirmative }}
         </button>
         <button
           class="font-bold text-brand-dark rounded-md w-1/3 py-1 text-lg border-2 border-brand-dark hover:bg-brand-grey"
         >
-          No
+          {{ myQuestions[currentQuestion - 1].negative }}
         </button>
       </div>
     </div>
@@ -50,4 +54,28 @@
   const showEasterEgg = ref(false)
 
   const showingQuestions = ref(false)
+
+  const currentQuestion = ref(1)
+
+  type Question = {
+    id: number
+    body: string
+    affirmative: string
+    negative: string
+  }
+
+  const myQuestions: Question[] = [
+    {
+      id: 1,
+      body: 'Do you enjoy playing online games?',
+      affirmative: 'Yes',
+      negative: 'No'
+    },
+    {
+      id: 2,
+      body: '´Do you prefer singleplayer or multiplayer games?',
+      affirmative: 'Single',
+      negative: 'Multi'
+    }
+  ]
 </script>
