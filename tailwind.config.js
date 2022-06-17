@@ -8,7 +8,8 @@ module.exports = {
           dark: '#212121',
           darkLight: '#414141',
           red: '#9C1C1C16',
-          redLight: '#EE554E'
+          redLight: '#EE554E',
+          grey: '#F3F3F4'
         }
       }
     }
