@@ -25,7 +25,22 @@
       </div>
       <p v-if="showEasterEgg">Luís é o melhor programador do mundo!</p>
     </div>
-    <div v-if="showingQuestions"></div>
+    <div v-if="showingQuestions">
+      <h2 class="font-bold text-xl text-center mb-12">Question 1/10</h2>
+      <h1 class="font-bold text-4xl mb-8">Are you PRO in CS:GO?</h1>
+      <div class="flex space-x-8 justify-center">
+        <button
+          class="font-bold text-brand-light bg-brand-dark rounded-md w-1/3 py-1 text-lg hover:bg-brand-darkLight"
+        >
+          Yes
+        </button>
+        <button
+          class="font-bold text-brand-dark rounded-md w-1/3 py-1 text-lg border-2 border-brand-dark hover:bg-brand-grey"
+        >
+          No
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
