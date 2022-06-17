@@ -1,6 +1,11 @@
 <template>
   <div class="flex flex-col justify-center items-center min-h-screen">
-    <h1 class="text-brand-dark font-bold text-5xl mb-10">Infinium Survey</h1>
+    <h1
+      class="text-brand-dark font-bold text-5xl mb-10 cursor-pointer"
+      @click="showEasterEgg = !showEasterEgg"
+    >
+      Infinium Survey
+    </h1>
     <div class="flex flex-col w-1/5">
       <p class="text-brand-dark font-bold">Username</p>
       <input
@@ -13,9 +18,12 @@
         Start
       </button>
     </div>
+    <p v-if="showEasterEgg">Luís é o melhor programador do mundo!</p>
   </div>
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+
+  const showEasterEgg = ref(false)
 </script>
