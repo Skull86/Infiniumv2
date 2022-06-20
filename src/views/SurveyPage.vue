@@ -61,6 +61,10 @@
 
   const currentQuestion = ref(1)
 
+  const answers = ref([])
+
+  function addToAnswers(id: number, isAffirmative: boolean) {}
+
   type Question = {
     id: number
     body: string
