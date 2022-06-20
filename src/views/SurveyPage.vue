@@ -36,13 +36,13 @@
       </h1>
       <div class="flex space-x-8 justify-center">
         <button
-          @click="currentQuestion += 1"
+          @click="addToAnswers(currentQuestion, true)"
           class="font-bold text-brand-light bg-brand-dark rounded-md w-1/3 py-1 text-lg hover:bg-brand-darkLight"
         >
           {{ myQuestions[currentQuestion - 1].affirmative }}
         </button>
         <button
-          @click="currentQuestion += 1"
+          @click="addToAnswers(currentQuestion, false)"
           class="font-bold text-brand-dark rounded-md w-1/3 py-1 text-lg border-2 border-brand-dark hover:bg-brand-grey"
         >
           {{ myQuestions[currentQuestion - 1].negative }}
@@ -61,9 +61,13 @@
 
   const currentQuestion = ref(1)
 
-  const answers = ref([])
+  const answers = ref<{ id: number; isAffirmative: boolean }[]>([])
 
-  function addToAnswers(id: number, isAffirmative: boolean) {}
+  function addToAnswers(id: number, isAffirmative: boolean) {
+    answers.value.push({ id, isAffirmative })
+    currentQuestion.value += 1
+    console.log('Answers: ', answers.value)
+  }
 
   type Question = {
     id: number
