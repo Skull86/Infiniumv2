@@ -67,6 +67,8 @@
     answers.value.push({ id, isAffirmative })
     currentQuestion.value += 1
     console.log('Answers: ', answers.value)
+    if (currentQuestion.value >= 10) {
+    }
   }
 
   type Question = {

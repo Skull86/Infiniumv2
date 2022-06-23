@@ -26,6 +26,16 @@ const routes = [
     path: '/survey',
     name: 'Survey',
     component: () => import('../views/SurveyPage.vue')
+  },
+  {
+    path: '/playground',
+    name: 'Playground',
+    component: () => import('../views/Playground.vue')
+  },
+  {
+    path: '/survey-results',
+    name: 'SurveyResults',
+    component: () => import('../views/SurveyResultsPage.vue')
   }
 ]
 

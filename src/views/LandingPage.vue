@@ -6,4 +6,6 @@
   >
   <router-link :to="{ name: 'Todo' }">To do list</router-link>
   <router-link :to="{ name: 'Survey' }">Survey Page</router-link>
+  <router-link :to="{ name: 'Playground' }">Playground</router-link>
+  <router-link :to="{ name: 'SurveyResults' }">Survey Results</router-link>
 </template>
