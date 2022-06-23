@@ -69,8 +69,9 @@
   function addToAnswers(id: number, isAffirmative: boolean) {
     answers.value.push({ id, isAffirmative })
     currentQuestion.value += 1
-    console.log('Answers: ', answers.value)
-    if (currentQuestion.value >= 10) {
+
+    if (currentQuestion.value >= 11) {
+      localStorage.setItem('SurveyAnswers', JSON.stringify(answers))
       router.push({ name: 'SurveyResults' })
     }
   }
