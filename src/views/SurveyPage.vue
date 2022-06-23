@@ -17,6 +17,7 @@
         <input
           class="focus:outline-none bg-brand-grey rounded-md px-2 py-1 mb-4 focus:bg-transparent focus:ring-2 focus:ring-brand-dark"
           placeholder="Optional"
+          v-model="username"
         />
         <button
           class="font-bold bg-brand-dark text-brand-light rounded-md py-1 hover:bg-brand-darkLight bg-gradient-to-r from-brand-redLight to-brand-red"
@@ -64,6 +65,8 @@
 
   const currentQuestion = ref(1)
 
+  const username = ref('')
+
   const answers = ref<{ id: number; isAffirmative: boolean }[]>([])
 
   function addToAnswers(id: number, isAffirmative: boolean) {
@@ -71,9 +74,22 @@
     currentQuestion.value += 1
 
     if (currentQuestion.value >= 11) {
-      localStorage.setItem('SurveyAnswers', JSON.stringify(answers))
+      const toSaveObject: ToSaveObject = {
+        username: username.value,
+        answers: answers.value
+      }
+
+      localStorage.setItem('SurveyAnswers', JSON.stringify(toSaveObject))
       router.push({ name: 'SurveyResults' })
     }
+  }
+
+  type ToSaveObject = {
+    username: string
+    answers: {
+      id: number
+      isAffirmative: boolean
+    }[]
   }
 
   type Question = {

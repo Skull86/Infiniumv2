@@ -4,14 +4,23 @@
   >
     <div class="flex flex-col items-center">
       <h1 class="font-bold text-5xl mb-8">Infinium Survey Results</h1>
-      <p class="font-bold">@psycarlo</p>
+      <p class="font-bold">@{{ results?.username }}</p>
       <div
         class="flex flex-col items-center justify-center bg-brand-grey rounded-lg px-2 py-2 text-center space-y-4"
       >
-        <div class="flex flex-col space-y-2" v-for="question in myQuestions">
+        <div
+          class="flex flex-col space-y-2"
+          v-for="(question, idx) in myQuestions"
+        >
           <p class="font-bold">Question{{ question.id }}</p>
           <p class="text-xl">{{ question.body }}</p>
-          <p class="font-bold">Yes</p>
+          <p class="font-bold">
+            {{
+              results?.answers[idx].isAffirmative
+                ? question.affirmative
+                : question.negative
+            }}
+          </p>
         </div>
       </div>
     </div>
@@ -21,7 +30,15 @@
 <script lang="ts" setup>
   import { onMounted, ref } from 'vue'
 
-  const results = ref([])
+  const results = ref<LoadedObject>()
+
+  type LoadedObject = {
+    username: string
+    answers: {
+      id: number
+      isAffirmative: boolean
+    }[]
+  }
 
   type Question = {
     id: number
