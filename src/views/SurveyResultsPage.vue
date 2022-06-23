@@ -2,8 +2,18 @@
   <div
     class="flex flex-col justify-center items-center min-h-screen bg-brand-light"
   >
-    <div>
-      <div>{{ myQuestions[0].body }}</div>
+    <div class="flex flex-col items-center">
+      <h1 class="font-bold text-5xl mb-8">Infinium Survey Results</h1>
+      <p class="font-bold">@psycarlo</p>
+      <div
+        class="flex flex-col items-center justify-center bg-brand-grey rounded-lg px-2 py-2 text-center space-y-4"
+      >
+        <div class="flex flex-col space-y-2" v-for="question in myQuestions">
+          <p class="font-bold">Question{{ question.id }}</p>
+          <p class="text-xl">{{ question.body }}</p>
+          <p class="font-bold">Yes</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
