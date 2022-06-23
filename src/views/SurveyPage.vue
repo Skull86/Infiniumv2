@@ -54,6 +54,9 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import { useRouter } from 'vue-router'
+
+  const router = useRouter()
 
   const showEasterEgg = ref(false)
 
@@ -68,6 +71,7 @@
     currentQuestion.value += 1
     console.log('Answers: ', answers.value)
     if (currentQuestion.value >= 10) {
+      router.push({ name: 'SurveyResults' })
     }
   }
 
